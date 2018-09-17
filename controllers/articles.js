@@ -36,7 +36,7 @@ const updateArticleVoteCount = (req, res, next) => {
 };
 
 const getCommentsByArticleId = (req, res, next) => {
-  Comment.find({ belongs_to: req.params.article_id })
+  Comment.find({ belongs_to: req.params.article_id }, '-__v')
   .populate('belongs_to', '-_id -__v')
   .populate('created_by', '-_id -__v')
   .then(comments => {

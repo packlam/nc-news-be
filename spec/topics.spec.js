@@ -20,7 +20,7 @@ describe('/api', function() {
   })
 
   // this disconnects from the db after all the tests
-  after(() => mongoose.disconnect())
+  // after(() => mongoose.disconnect())
 
   /*
   Requests to /api/topics

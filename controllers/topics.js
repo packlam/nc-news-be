@@ -8,7 +8,7 @@ const getTopics = (req, res, next) => {
 };
 
 const getArticlesByTopicSlug = (req, res, next) => {
-  Article.find({belongs_to: req.params.topic_slug})
+  Article.find({belongs_to: req.params.topic_slug}, '-_id, -__v')
   .populate('created_by', '-__v')
   .lean()
   .then(articles => {
