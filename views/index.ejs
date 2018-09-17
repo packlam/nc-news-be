@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Northcoders News API</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="/main.css" />
+</head>
+<body>
+  <h1>Northcoders News API</h1>
+  <p>Available endpoints:</p>
+  <ul>
+    <li>GET /api/topics: Get all the topics</li>
+    <li>GET /api/topics/:topic_slug/articles: Return all the articles for a certain topic, e.g: `/api/topics/football/articles`</li>
+    <li>POST /api/topics/:topic_slug/articles: Add a new article to a topic. This route requires a JSON body with title and body key value pairs, e.g: `{ "title": "new article", "body": "This is my new article content", "created_by": "user_id goes here"}`</li>
+    <li>GET /api/articles: Returns all the articles</li>
+    <li>GET /api/articles/:article_id: Get an individual article</li>
+    <li>GET /api/articles/:article_id/comments: Get all the comments for a individual article</li>
+    <li>POST /api/articles/:article_id/comments: Add a new comment to an article. This route requires a JSON body with body and created_by key value pairs, e.g: `{"body": "This is my new comment", "created_by": "user_id goes here"}`</li>
+    <li>PATCH /api/articles/:article_id: Increment or Decrement the votes of an article by one. This route requires a vote query of 'up' or 'down', e.g: `/api/articles/:article_id?vote=up`</li>
+    <li>PATCH /api/comments/:comment_id: Increment or Decrement the votes of a comment by one. This route requires a vote query of 'up' or 'down', e.g: `/api/comments/:comment_id?vote=down`</li>
+    <li>DELETE /api/comments/:comment_id: Deletes a comment</li>
+    <li>GET /api/users/:username: e.g: `/api/users/mitch123`, Returns a JSON object with the profile data for the specified user</li>
+  </ul>
+</body>
+</html>
