@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const DB_URL = process.env.DB_URL || require('./config/db_config');
@@ -7,6 +8,7 @@ const apiRouter = require('./routes/api');
 // set up the web server
 const app = express();
 app.use(bodyParser.json())
+app.use(cors())
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
