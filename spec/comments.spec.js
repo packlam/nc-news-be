@@ -4,6 +4,7 @@ const app = require('../app');
 const request = require('supertest')(app);
 const mongoose = require('mongoose');
 const seedDB = require('../seed/seed');
+const db_url = require('../config/db_config')
 const { articleData, commentData, topicData, userData } = require('../seed/testData/index');
 let articles, comments, topics, users;
 
@@ -11,6 +12,7 @@ describe('/api', function() {
   // IMPORTANT: database takes longer than 2 seconds to seed
   this.timeout(5000);
 
+  before(() => mongoose.connect(db_url))
   // this ensures that the db is re-seeded before every it block
   beforeEach(() => {
     return seedDB(articleData, commentData, topicData, userData)
