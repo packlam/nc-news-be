@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const db_url = require('./config/db_config');
+const DB_URL = process.env.DB_URL || require('./config/db_config');
 const apiRouter = require('./routes/api');
 
 // set up the web server
@@ -11,8 +11,8 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // connect to the database
-mongoose.connect(db_url, { useNewUrlParser: true })
-  .then(() => console.log(`Connected to database ${db_url}`))
+mongoose.connect(DB_URL, { useNewUrlParser: true })
+  .then(() => console.log(`Connected to database ${DB_URL}`))
   .catch(console.log)
 
 // set up the routes
